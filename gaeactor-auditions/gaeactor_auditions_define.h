@@ -1,0 +1,7 @@
+﻿#ifndef GAEACTOR_AUDITIONS_DEFINE_H
+#define GAEACTOR_AUDITIONS_DEFINE_H
+
+#include "head_define.h"
+
+
+#endif // GAEACTOR_AUDITIONS_DEFINE_H

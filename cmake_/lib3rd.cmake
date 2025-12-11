@@ -1,0 +1,108 @@
+include(${CMAKE_DIR}/libarmadillo.cmake)
+include(${CMAKE_DIR}/libassimp.cmake)
+include(${CMAKE_DIR}/libboost.cmake)
+include(${CMAKE_DIR}/libclapack.cmake)
+include(${CMAKE_DIR}/libconcurrentqueue.cmake)
+include(${CMAKE_DIR}/libcurl.cmake)
+include(${CMAKE_DIR}/libcxxgraph.cmake)
+include(${CMAKE_DIR}/libeasyprofiler.cmake)
+include(${CMAKE_DIR}/libecal.cmake)
+include(${CMAKE_DIR}/libevent.cmake)
+include(${CMAKE_DIR}/libexprtk.cmake)
+include(${CMAKE_DIR}/libfastrtps.cmake)
+include(${CMAKE_DIR}/libfbx.cmake)
+include(${CMAKE_DIR}/libfreeimage.cmake)
+include(${CMAKE_DIR}/libfreetype2.cmake)
+include(${CMAKE_DIR}/libgdal.cmake)
+include(${CMAKE_DIR}/libgeos.cmake)
+# include(${CMAKE_DIR}/libgeoview.cmake)
+include(${CMAKE_DIR}/libgl.cmake)
+include(${CMAKE_DIR}/libglad.cmake)
+include(${CMAKE_DIR}/libglew.cmake)
+include(${CMAKE_DIR}/libglfw.cmake)
+include(${CMAKE_DIR}/libglm.cmake)
+include(${CMAKE_DIR}/libgooglebreakpad.cmake)
+include(${CMAKE_DIR}/libh3.cmake)
+include(${CMAKE_DIR}/libhiredis.cmake)
+include(${CMAKE_DIR}/libhv.cmake)
+include(${CMAKE_DIR}/libkhr.cmake)
+include(${CMAKE_DIR}/libmatlab.cmake)
+include(${CMAKE_DIR}/libmsgpack.cmake)
+include(${CMAKE_DIR}/liboatpp.cmake)
+include(${CMAKE_DIR}/libonetbb.cmake)
+include(${CMAKE_DIR}/libopenssl.cmake)
+include(${CMAKE_DIR}/libosg.cmake)
+include(${CMAKE_DIR}/libosgearth.cmake)
+include(${CMAKE_DIR}/libqtxlsx.cmake)
+include(${CMAKE_DIR}/librapidjson.cmake)
+include(${CMAKE_DIR}/libredisplusplus.cmake)
+include(${CMAKE_DIR}/libsqliteorm.cmake)
+include(${CMAKE_DIR}/libstb.cmake)
+include(${CMAKE_DIR}/libtinyxml2.cmake)
+include(${CMAKE_DIR}/libuv.cmake)
+include(${CMAKE_DIR}/libuws.cmake)
+include(${CMAKE_DIR}/libwebsocketpp.cmake)
+include(${CMAKE_DIR}/libzlib.cmake)
+include(${CMAKE_DIR}/libaff3ct.cmake)
+include(${CMAKE_DIR}/libhdf5.cmake)
+include(${CMAKE_DIR}/libncurses.cmake)
+include(${CMAKE_DIR}/libnetcdfc.cmake)
+include(${CMAKE_DIR}/libpybind11.cmake)
+include(${CMAKE_DIR}/libspline.cmake)
+include(${CMAKE_DIR}/libtaskflow.cmake)
+
+
+set(LIB3RD_LIBRARIES
+    ${libarmadillo}
+    ${libassimp}
+    ${libboost}
+    ${libclapack}
+    ${libconcurrentqueue}
+    ${libcurl}
+    ${libcxxgraph}
+    ${libeasyprofiler}
+    ${libecal}
+    ${libevent}
+    ${libexprtk}
+    ${libfastrtps}
+    ${libfbx}
+    ${libfreeimage}
+    ${libfreetype2}
+    ${libgdal}
+    ${libgeos}
+    # ${libgeoview}
+    ${libgl}
+    ${libglad}
+    ${libglew}
+    ${libglfw}
+    ${libglm}
+    ${libgooglebreakpad}
+    ${libh3}
+    ${libhiredis}
+    ${libhv}
+    ${libkhr}
+    ${libmatlab}
+    ${libmsgpack}
+    ${liboatpp}
+    ${libonetbb}
+    ${libopenssl}
+    ${libosg}
+    ${libosgearth}
+    ${libqtxlsx}
+    ${librapidjson}
+    ${libredisplusplus}
+    ${libsqliteorm}
+    ${libstb}
+    ${libtinyxml2}
+    ${libuv}
+    ${libuws}
+    ${libwebsocketpp}
+    ${libzlib}
+    ${libaff3ct}
+    ${libhdf5}
+    ${libncurses}
+    ${libnetcdfc}
+    ${libpybind11}
+    ${libspline}
+    ${libtaskflow})
+    

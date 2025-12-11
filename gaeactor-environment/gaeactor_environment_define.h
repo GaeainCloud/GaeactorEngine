@@ -1,0 +1,7 @@
+﻿#ifndef GAEACTOR_ENVIRONMENT_DEFINE_H
+#define GAEACTOR_ENVIRONMENT_DEFINE_H
+
+#include "head_define.h"
+
+
+#endif // GAEACTOR_ENVIRONMENT_DEFINE_H

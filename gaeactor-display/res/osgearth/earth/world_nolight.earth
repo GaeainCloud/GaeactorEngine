@@ -1,0 +1,61 @@
+
+<map name="world" type="geocentric" version="2">
+	<options>
+		<!--只有这里的lighting（默认为true）为true，sky_simple的地形光照效果才起作用-->
+        <lighting>false</lighting>
+		<!--set cache information-->
+		<!-- <cache path="../../../../apps_cache/Equinox3D/earth_cache" type="filesystem" /> -->
+		<!-- <cache_policy usage="read_write" /> -->
+		<!-- 地型引擎选择，oe2.10默认是rex，但是有时mp感觉更快。注意检查osgPlugins-3.6.4目录是否有osgdb_osgearth_engine_mp.dll，否则可能闪退 -->
+		<!--skirt_ratio：裙边比率，用于遮盖不同层级瓦片之间的缝隙-->
+		<!--<terrain driver="rex" skirt_ratio = "0.5"/>-->
+		<terrain driver="mp" skirt_ratio = "0.5">        
+            <vertical_scale>1.0</vertical_scale>
+        </terrain>
+		<!-- 缓解贴地绘制锯齿问题。默认的是4096 -->
+		<overlay_texture_size>16384</overlay_texture_size>
+    </options>
+		<image name="mapbox_satellite" driver="xyz">	
+		<url>http://47.241.108.186/googlemap/vt/lyrs=s&amp;hl=zh-CN&amp;x={x}&amp;y={y}&amp;z={z}</url>
+		<!--<url>http://192.168.2.61:32696/SaveMapTiles/Bing/Satellite/{z}/{x}-{y}.jpg</url>-->
+		<!--<url>http://47.241.108.186/googlemap/vt/lyrs=y&amp;hl=zh-CN&amp;x={x}&amp;y={y}&amp;z={z}</url>-->	
+		<!--<url>http://47.241.108.186/googlemap/vt/lyrs=m&amp;hl=zh-CN&amp;x={x}&amp;y={y}&amp;z={z}</url>-->	
+		
+		
+		<!--<url>E:/Cache/SaveMapTiles/Bing/Satellite/{z}/{x}-{y}.png</url>-->
+		<!--<url>E:/maps/bingmaps/satellite/{z}/{x}/{y}.jpg</url>-->
+		<!--<url>http://47.241.95.200/googlemap/vt/lyrs=y&amp;hl=zh-CN&amp;gl=cn&amp;x={x}&amp;y={y}&amp;z={z}</url>-->
+		<!--<url>http://t3.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&amp;REQUEST=GetTile&amp;VERSION=1.0.0&amp;LAYER=img&amp;STYLE=default&amp;TILEMATRIXSET=w&amp;FORMAT=tiles&amp;TILEMATRIX={z}&amp;TILEROW={y}&amp;TILECOL={x}&amp;tk=d3e16d643a95960789ec23b47eb07d49</url>-->
+		<!--<url>http://t3.tianditu.cn/img_c/wmts?service=wmts&amp;request=GetTile&amp;version=1.0.0&amp;LAYER=img&amp;tileMatrixSet=c&amp;TileMatrix={z}&amp;TileRow={y}&amp;TileCol={x}&amp;style=default&amp;format=tiles&amp;tk=d3e16d643a95960789ec23b47eb07d49</url>-->
+		<profile>spherical-mercator</profile>
+		<cache_policy usage="read_write"/>
+	</image>
+
+    	<elevation name="ChinaDEM13" driver="gdal" min_level = "1"  max_level = "13" nodata_value = "-32768" min_valid_value = "-32768" max_valid_value = "32768" nodata_policy = "msl">
+		<!--<url>../../../../../../../../earth/sc.tif</url>-->
+		<!--<url>E:/china_12.5m/四川/四川.tif</url>-->
+		<url>../../../../../../../../earth/ChinaDem13.tif</url>
+		<!--<url>../../../../../../../../earth/Elevation</url>-->
+		<!--<url>E:/china_12.5m/anhui/anhui.tif</url>-->
+		<!--<url>../../../../../../../../earth/12m.tif</url>-->
+		<!--<url>../../../../../../../../earth/ASTER_GDEM_V2_30m.tif</url>-->
+		<!--<url>../../../../../../../../earth/SRTM3_V4_90m.tif</url>-->
+		
+        <vertical_scale>50.0</vertical_scale>
+	    <ramp>./elevation.clr</ramp>
+	</elevation>
+	
+	<viewpoints>
+		<viewpoint name="DaDuHe" heading="0" height="0" lat="29.33" long="103.62" pitch="-90" range="3450"/>
+        <viewpoint name="ChengDu" heading="24.261" height="0" lat="30.66" long="104.058" pitch="-21.6" range="3450"/>
+		<viewpoint name="BeiJing" heading="24.261" height="0" lat="39.9184" long="116.393714" pitch="-21.6" range="3450"/>
+    </viewpoints>
+
+	<Model name="My Model Layer">
+    <url>C:/Users/lj/Downloads/dcc388cf-5e10-4a6f-b8ef-d4113697e72bc.glb</url>
+
+    <position lat="29.351373989362386" long="102.64338206306797" alt="3500"/>
+	</Model>
+
+    <sky_simple hours="7.0" moon_image="./moon_1024x512.jpg"/>
+</map>

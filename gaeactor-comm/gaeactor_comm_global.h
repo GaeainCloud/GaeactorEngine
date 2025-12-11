@@ -1,0 +1,12 @@
+﻿#ifndef GAEACTOR_COMM_GLOBAL_H
+#define GAEACTOR_COMM_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(GAEACTOR_COMM_LIBRARY)
+#  define GAEACTOR_COMM_EXPORT Q_DECL_EXPORT
+#else
+#  define GAEACTOR_COMM_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // GAEACTOR_COMM_GLOBAL_H

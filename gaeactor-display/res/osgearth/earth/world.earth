@@ -1,0 +1,88 @@
+
+<map name="world" type="geocentric" version="2">
+	<options>
+        <elevation_interpolation>bilinear</elevation_interpolation>
+		<!--只有这里的lighting（默认为true）为true，sky_simple的地形光照效果才起作用-->
+        <lighting>false</lighting>
+		<!-- <cache_policy usage="read_write" /> -->
+		<!-- 地型引擎选择，oe2.10默认是rex，但是有时mp感觉更快。注意检查osgPlugins-3.6.4目录是否有osgdb_osgearth_engine_mp.dll，否则可能闪退 -->
+		<!--skirt_ratio：裙边比率，用于遮盖不同层级瓦片之间的缝隙-->
+		<!--<terrain driver="rex" skirt_ratio = "0.5"/>-->
+		<terrain driver="mp" skirt_ratio = "0.5">        
+            <vertical_scale>1.0</vertical_scale>
+        </terrain>
+		<!-- 缓解贴地绘制锯齿问题。默认的是4096 -->
+		<overlay_texture_size>16384</overlay_texture_size>
+    </options>
+	
+
+	  	
+	<!-- <feature_source name="world-data" driver="ogr"> -->
+        <!-- <url>data/world.shp</url> -->
+        <!-- <convert type="line"/> -->
+    <!-- </feature_source> -->
+    <!-- <feature_model name="world_boundaries" feature_source="world-data"> -->
+        <!-- <layout tile_size="500000" crop_features="true" paged="true"> -->
+            <!-- <level max_range="1e10"/> -->
+        <!-- </layout> -->
+        <!-- <styles> -->
+            <!-- <style type="text/css"> -->
+                <!-- world { -->
+                   <!-- stroke:                   #ffff00; -->
+                   <!-- stroke-width:             3px; -->
+                   <!-- stroke-tessellation-size: 1km; -->
+                   <!-- render-lighting:          false; -->
+                   <!-- altitude-clamping:        terrain-gpu; -->
+                   <!-- render-depth-offset:      true;                    -->
+                <!-- }             -->
+            <!-- </style> -->
+        <!-- </styles> -->
+    <!-- </feature_model> -->
+	
+	<!-- <model name="buildings" driver="feature_geom"> -->
+        <!-- <features name="buildings" driver="osmbuildings"> -->
+            <!-- <url>http://data.osmbuildings.org/0.2/anonymous/tile/{z}/{x}/{y}.json</url> -->
+            <!-- <min_level>15</min_level> -->
+			<!-- <max_level>15</max_level> -->
+			<!-- <invert_y>true</invert_y> -->
+			<!-- <profile>spherical-mercator</profile> -->
+        <!-- </features> -->
+        
+        <!-- <styles> -->
+            <!-- <style type="text/css"> -->
+                <!-- buildings { -->
+                    <!-- extrusion-height:      getBuildingHeight(); -->
+                    <!-- extrusion-flatten:     true; -->
+                    <!-- altitude-clamping:     terrain-gpu;<!-- 跟着地形起伏 --><!--terrain-gpu,none,terrain,absolute,relative,relative-gpu, terrain-drape,terrain-scene,relative-scene --> -->
+					<!-- fill:              #00ffff88; -->
+                <!-- }    -->
+            <!-- </style> -->
+			<!-- <script language="javascript"> -->
+                <!-- <![CDATA[ -->
+                <!-- function getBuildingHeight() { -->
+					<!-- if ("height" in feature.properties) -->
+					<!-- { -->
+						<!-- var h = feature.properties["height"]; -->
+						<!-- return Math.max(h, 4.0); -->
+					<!-- } -->
+					<!-- else if ("levels" in feature.properties) -->
+					<!-- { -->
+						<!-- var levels = feature.properties["levels"]; -->
+						<!-- return Math.max(levels*4, 4.0); -->
+					<!-- } -->
+					<!-- return Math.random() * 50.0 + 4.0; -->
+                <!-- } -->
+              <!-- ]]> -->
+            <!-- </script> -->
+        <!-- </styles> -->
+        <!-- <lighting>true</lighting>         -->
+    <!-- </model> -->
+	
+	<viewpoints>
+		<viewpoint name="DaDuHe" heading="0" height="0" lat="29.33" long="103.62" pitch="-90" range="3450"/>
+        <viewpoint name="ChengDu" heading="24.261" height="0" lat="30.66" long="104.058" pitch="-21.6" range="3450"/>
+		<viewpoint name="BeiJing" heading="24.261" height="0" lat="39.9184" long="116.393714" pitch="-21.6" range="3450"/>
+    </viewpoints>
+
+    <sky_simple hours="7.0" moon_image="../image/moon_1024x512.jpg"/>
+</map>

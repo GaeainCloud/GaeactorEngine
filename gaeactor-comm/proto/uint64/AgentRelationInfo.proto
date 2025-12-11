@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package msg.AgentRelationInfo;
+
+enum E_RELATIONTYPE {
+	E_RELATIONTYPE_UNKNOWN = 0;
+	E_RELATIONTYPE_COMM = 1;
+	E_RELATIONTYPE_TRACK = 2;
+	E_RELATIONTYPE_DETECT = 3;
+};
+
+enum E_REFERSHTYPE {
+	E_REFERSHTYPE_UNKNOWN = 0;
+	E_REFERSHTYPE_ADD = 1;
+	E_REFERSHTYPE_REMOVE = 2;
+	E_REFERSHTYPE_UPDATE = 3;
+};
+
+message msg_AgentInfo {
+    uint64 agentid = 1;
+    uint64 sensingmediaid = 2;
+    uint64 timestamp = 3;
+    uint64 sim_timestamp = 4;
+    double lon = 5;
+    double lat = 6;
+    double amsl = 7;
+    int32 ref = 8;
+    float roll = 9;
+    float pitch = 10;
+    float yaw = 11;
+    float speed = 12;
+}
+
+message msg_AgentRelationInfo 
+{
+    msg_AgentInfo src_agent = 1;
+    msg_AgentInfo dst_agent = 2;
+    E_RELATIONTYPE relationtype = 3;
+    E_REFERSHTYPE refershtype = 4;
+    uint64 updatetimestamp = 5;
+    double distance = 6;
+    int32 usage = 7;
+}

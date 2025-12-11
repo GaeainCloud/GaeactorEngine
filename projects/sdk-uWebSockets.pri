@@ -1,0 +1,1 @@
+INCLUDEPATH += $$PWD/../../3rd/win64/uWebSockets-20.47.0/include

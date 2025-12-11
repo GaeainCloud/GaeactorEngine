@@ -1,0 +1,7 @@
+﻿#ifndef GAEACTOR_EVENT_ENGINE_DEFINE_H
+#define GAEACTOR_EVENT_ENGINE_DEFINE_H
+
+#include "head_define.h"
+
+
+#endif // GAEACTOR_EVENT_ENGINE_DEFINE_H

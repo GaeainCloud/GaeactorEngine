@@ -1,0 +1,7 @@
+﻿#ifndef GAEACTOR_INTERACTIONS_DEFINE_H
+#define GAEACTOR_INTERACTIONS_DEFINE_H
+
+#include "head_define.h"
+
+
+#endif // GAEACTOR_INTERACTIONS_DEFINE_H

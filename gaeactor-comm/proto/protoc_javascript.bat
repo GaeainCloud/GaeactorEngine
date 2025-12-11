@@ -1,0 +1,1 @@
+..\..\..\3rd\win64\ecal-5.12.4\bin\release\protoc  --js_out=import_style=commonjs,binary:./protoc_javascript ./*.proto

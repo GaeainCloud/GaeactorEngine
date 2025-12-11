@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4516AD7D-3178-394C-951C-D370E0D03689}</ProjectGuid>
+    <RootNamespace>LaViCDesktop</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.18362.0</WindowsTargetPlatformMinVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v143</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>LaViCDesktop</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v143</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>LaViCDesktop</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>debug\</OutDir>
+    <IntDir>debug\</IntDir>
+    <TargetName>LaViCDesktop</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)..\..\3rd\win64\KHR\include;$(ProjectDir)..\..\3rd\win64\glm\include;$(ProjectDir)..\..\3rd\win64\glfw\include;$(ProjectDir)..\..\3rd\win64\glad\include;$(ProjectDir)..\..\3rd\win64\gl\include;$(ProjectDir)..\..\3rd\win64\freetype2\include;$(ProjectDir)..\..\3rd\win64\FreeImage\include;$(ProjectDir)..\..\3rd\win64\fbx\include;$(ProjectDir)..\..\3rd\win64\assimp\include;$(ProjectDir)..\..\3rd\win64\stb;$(ProjectDir)..\..\3rd\win64\osg_3.6.5_osgearth_2.10.2\include\osgearth_2.10.2;$(ProjectDir)..\..\3rd\win64\h3-4.1.0\include\h3;$(ProjectDir)..\..\3rd\win64\libuv-1.46.0\include;$(ProjectDir)..\..\3rd\win64\uWS\include;$(ProjectDir)..\..\3rd\win64\curl-8.4.0\include;$(ProjectDir)..\..\3rd\win64\osg_3.6.5_osgearth_2.10.2\include\osg_3.6.5;$(ProjectDir)..\..\3rd\win64\zlib-1.3.0\include;$(ProjectDir)..\..\3rd\win64\geos-3.11.2\include;$(ProjectDir)..\..\3rd\win64\QtXlsx\include;$(ProjectDir)..\..\3rd\win64\openssl1.1.1u\include;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-utils-location;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-utils;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-transmit;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-comm;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-presentation;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-environment;$(ProjectDir)..\..\bin\win64\sdk\src\loggingservice;$(ProjectDir)..\..\3rd\win64\easy_profiler-v2.1.0-msvc22-win64\include;$(ProjectDir)..\..\3rd\win64\google_breakpad\include;$(ProjectDir)..\..\bin\win64\sdk\src\crashservice;$(ProjectDir)..\..\3rd\win64\websocketpp-0.8.2\include;$(ProjectDir)..\..\3rd\win64\boost-1.84.0\include\boost-1_84;$(ProjectDir)..\..\3rd\win64\oatpp-1.3.0\include\oatpp-1.3.0\oatpp;$(ProjectDir)..\..\3rd\win64\oatpp-swagger-1.3.0\include\oatpp-1.3.0\oatpp-swagger;$(ProjectDir)..\..\3rd\win64\oatpp-sqlite-1.3.0\include\oatpp-1.3.0\oatpp-sqlite;$(ProjectDir)..\..\3rd\win64\oatpp-sqlite-1.3.0\include\oatpp-1.3.0\oatpp-sqlite\sqlite;$(ProjectDir)..\..\3rd\win64\oatpp-websocket-1.3.0\include\oatpp-1.3.0\oatpp-websocket;$(ProjectDir)..\..\3rd\win64\sqlite_orm-master\include;$(ProjectDir)..\..\3rd\win64\sqlite-amalgamation-3450000;$(ProjectDir)..\..\3rd\win64\sqlite3\include;$(ProjectDir)..\..\3rd\win64\msgpack-c-cpp-6.1.1\include;$(ProjectDir)..\..\3rd\win64\ecal-5.12.4\include</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64;$(ProjectDir)..\..\3rd\win64\FreeImage\lib\x64;$(ProjectDir)..\..\3rd\win64\gl\lib;$(ProjectDir)..\..\3rd\win64\glfw\lib;$(ProjectDir)..\..\3rd\win64\assimp\lib\debug;$(ProjectDir)..\..\3rd\win64\freetype2\lib\debug;$(ProjectDir)..\..\3rd\win64\h3-4.1.0\lib\debug;$(ProjectDir)..\..\3rd\win64\libuv-1.46.0\lib\debug;$(ProjectDir)..\..\3rd\win64\uWS\lib\debug;$(ProjectDir)..\..\3rd\win64\zlib-1.3.0\lib\debug;$(ProjectDir)..\..\3rd\win64\curl-8.4.0\lib\debug;$(ProjectDir)..\..\3rd\win64\openssl1.1.1u\lib\debug;$(ProjectDir)..\..\3rd\win64\osg_3.6.5_osgearth_2.10.2\lib\osgearth_2.10.2\debug;$(ProjectDir)..\..\3rd\win64\osg_3.6.5_osgearth_2.10.2\lib\osg_3.6.5\debug;$(ProjectDir)..\..\3rd\win64\QtXlsx\lib\debug;$(ProjectDir)..\..\3rd\win64\geos-3.11.2\lib\debug;$(ProjectDir)..\..\bin\win64\sdk\lib\debug;$(ProjectDir)..\..\3rd\win64\easy_profiler-v2.1.0-msvc22-win64\lib\debug;$(ProjectDir)..\..\3rd\win64\google_breakpad\lib\debug;$(ProjectDir)..\..\3rd\win64\oatpp-1.3.0\lib\oatpp-1.3.0\debug;$(ProjectDir)..\..\3rd\win64\oatpp-swagger-1.3.0\lib\oatpp-1.3.0\debug;$(ProjectDir)..\..\3rd\win64\oatpp-sqlite-1.3.0\lib\oatpp-1.3.0\debug;$(ProjectDir)..\..\3rd\win64\oatpp-websocket-1.3.0\lib\oatpp-1.3.0\debug;$(ProjectDir)..\..\3rd\win64\sqlite3\lib\debug;$(ProjectDir)..\..\3rd\win64\ecal-5.12.4\lib\debug</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>release\</OutDir>
+    <IntDir>release\</IntDir>
+    <TargetName>LaViCDesktop</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)..\..\3rd\win64\KHR\include;$(ProjectDir)..\..\3rd\win64\glm\include;$(ProjectDir)..\..\3rd\win64\glfw\include;$(ProjectDir)..\..\3rd\win64\glad\include;$(ProjectDir)..\..\3rd\win64\gl\include;$(ProjectDir)..\..\3rd\win64\freetype2\include;$(ProjectDir)..\..\3rd\win64\FreeImage\include;$(ProjectDir)..\..\3rd\win64\fbx\include;$(ProjectDir)..\..\3rd\win64\assimp\include;$(ProjectDir)..\..\3rd\win64\stb;$(ProjectDir)..\..\3rd\win64\h3-4.1.0\include\h3;$(ProjectDir)..\..\3rd\win64\libuv-1.46.0\include;$(ProjectDir)..\..\3rd\win64\uWS\include;$(ProjectDir)..\..\3rd\win64\zlib-1.3.0\include;$(ProjectDir)..\..\3rd\win64\openssl1.1.1u\include;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-utils-location;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-utils;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-transmit;$(ProjectDir)..\..\3rd\win64\osg_3.6.5_osgearth_2.10.2\include\osg_3.6.5;$(ProjectDir)..\..\3rd\win64\osg_3.6.5_osgearth_2.10.2\include\osgearth_2.10.2;$(ProjectDir)..\..\3rd\win64\QtXlsx\include;$(ProjectDir)..\..\3rd\win64\curl-8.4.0\include;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-presentation;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-comm;$(ProjectDir)..\..\bin\win64\sdk\src\gaeactor-environment;$(ProjectDir)..\..\bin\win64\sdk\src\loggingservice;$(ProjectDir)..\..\3rd\win64\easy_profiler-v2.1.0-msvc22-win64\include;$(ProjectDir)..\..\3rd\win64\google_breakpad\include;$(ProjectDir)..\..\bin\win64\sdk\src\crashservice;$(ProjectDir)..\..\3rd\win64\websocketpp-0.8.2\include;$(ProjectDir)..\..\3rd\win64\boost-1.84.0\include\boost-1_84;$(ProjectDir)..\..\3rd\win64\oatpp-1.3.0\include\oatpp-1.3.0\oatpp;$(ProjectDir)..\..\3rd\win64\oatpp-swagger-1.3.0\include\oatpp-1.3.0\oatpp-swagger;$(ProjectDir)..\..\3rd\win64\oatpp-sqlite-1.3.0\include\oatpp-1.3.0\oatpp-sqlite;$(ProjectDir)..\..\3rd\win64\oatpp-sqlite-1.3.0\include\oatpp-1.3.0\oatpp-sqlite\sqlite;$(ProjectDir)..\..\3rd\win64\oatpp-websocket-1.3.0\include\oatpp-1.3.0\oatpp-websocket;$(ProjectDir)..\..\3rd\win64\sqlite_orm-master\include;$(ProjectDir)..\..\3rd\win64\sqlite-amalgamation-3450000;$(ProjectDir)..\..\3rd\win64\sqlite3\include;$(ProjectDir)..\..\3rd\win64\ecal-5.12.4\include;$(ProjectDir)..\..\3rd\win64\msgpack-c-cpp-6.1.1\include</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64;$(ProjectDir)..\..\3rd\win64\FreeImage\lib\x64;$(ProjectDir)..\..\3rd\win64\gl\lib;$(ProjectDir)..\..\3rd\win64\glfw\lib;$(ProjectDir)..\..\3rd\win64\assimp\lib\release;$(ProjectDir)..\..\3rd\win64\freetype2\lib\release;$(ProjectDir)..\..\3rd\win64\h3-4.1.0\lib\release;$(ProjectDir)..\..\3rd\win64\libuv-1.46.0\lib\release;$(ProjectDir)..\..\3rd\win64\uWS\lib\release;$(ProjectDir)..\..\3rd\win64\zlib-1.3.0\lib\release;$(ProjectDir)..\..\3rd\win64\openssl1.1.1u\lib\release;$(ProjectDir)..\..\bin\win64\sdk\lib\release;$(ProjectDir)..\..\3rd\win64\QtXlsx\lib\release;$(ProjectDir)..\..\3rd\win64\curl-8.4.0\lib\release;$(ProjectDir)..\..\3rd\win64\osg_3.6.5_osgearth_2.10.2\lib\osgearth_2.10.2\release;$(ProjectDir)..\..\3rd\win64\osg_3.6.5_osgearth_2.10.2\lib\osg_3.6.5\release;$(ProjectDir)..\..\3rd\win64\easy_profiler-v2.1.0-msvc22-win64\lib\release;$(ProjectDir)..\..\3rd\win64\google_breakpad\lib\release;$(ProjectDir)..\..\3rd\win64\oatpp-1.3.0\lib\oatpp-1.3.0\release;$(ProjectDir)..\..\3rd\win64\oatpp-swagger-1.3.0\lib\oatpp-1.3.0\release;$(ProjectDir)..\..\3rd\win64\oatpp-sqlite-1.3.0\lib\oatpp-1.3.0\release;$(ProjectDir)..\..\3rd\win64\oatpp-websocket-1.3.0\lib\oatpp-1.3.0\release;$(ProjectDir)..\..\3rd\win64\sqlite3\lib\release;$(ProjectDir)..\..\3rd\win64\ecal-5.12.4\lib\release</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>5.15.2_msvc2019_64</QtInstall>
+    <QtModules>core;opengl;gui;widgets;websockets;network;quickwidgets;axcontainer;</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>5.15.2_msvc2019_64</QtInstall>
+    <QtModules>core;opengl;gui;widgets;websockets;network;quickwidgets;axcontainer;</QtModules>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;include;include\freetype2;include\stb;release;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>release\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DEPRECATED_WARNINGS;USING_QT_OPENGL_FUNCTION;USING_SHADER;QT_NO_DEBUG;NDEBUG;UWS_NO_ZLIB;BUILD_WITH_EASY_PROFILER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;User32.lib;gdi32.lib;advapi32.lib;Iphlpapi.lib;Shell32.lib;Dbghelp.lib;ucrt.lib;Userenv.lib;OpenGL32.lib;freetype.lib;assimp-vc141-mt.lib;glfw3.lib;glew32.lib;freeImage.lib;h3.lib;libuv.lib;uWS.lib;zlibwapi.lib;libcrypto.lib;libssl.lib;gaeactor-utils.lib;gaeactor-utils-location.lib;gaeactor-transmit.lib;gaeactor-environment.lib;gaeactor-presentation.lib;gaeactor-comm.lib;easy_profiler.lib;loggingservice.lib;crashservice.lib;common.lib;crash_generation_client.lib;crash_generation_server.lib;exception_handler.lib;libcurl_imp.lib;OpenThreads.lib;osgAnimation.lib;osgFX.lib;osgManipulator.lib;osgPresentation.lib;osgSim.lib;osgText.lib;osgUtil.lib;osgVolume.lib;osg.lib;osgDB.lib;osgGA.lib;osgParticle.lib;osgShadow.lib;osgTerrain.lib;osgUI.lib;osgViewer.lib;osgWidget.lib;osgEarth.lib;osgEarthFeatures.lib;osgEarthSplat.lib;osgEarthSymbology.lib;osgEarthUtil.lib;osgEarthAnnotation.lib;Qt5Xlsx.lib;oatpp.lib;oatpp-swagger.lib;oatpp-sqlite.lib;oatpp-websocket.lib;sqlite.lib;ecal_core.lib;ecal_ecaltime_pb.lib;ecal_mon_plugin_lib.lib;ecal_proto.lib;hdf5.lib;ecal_app_pb.lib;ecal_core_pb.lib;ecal_ecal-utils.lib;ecal_hdf5.lib;ecal_pb.lib;ecal_rec_addon_core.lib;libprotobuf-lite.lib;libprotoc.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>.\lib\gl;.\lib\freetype;.\lib\assimp;.\lib\glfw;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\LaViCDesktop.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreSpecificDefaultLibraries>LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DEPRECATED_WARNINGS;USING_QT_OPENGL_FUNCTION;USING_SHADER;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>./$(Configuration)/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>$(ProjectDir)</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)..\..\bin\win64\release\res\" (md "$(SolutionDir)..\..\bin\win64\release\res\")
+if not exist "$(SolutionDir)..\..\bin\win64\release\fonts\" (md "$(SolutionDir)..\..\bin\win64\release\fonts\")
+if not exist "$(SolutionDir)..\..\bin\win64\release\shaders\" (md "$(SolutionDir)..\..\bin\win64\release\shaders\")
+xcopy "$(ProjectDir)res" "$(SolutionDir)..\..\bin\win64\release\res\" /y /e
+xcopy "$(ProjectDir)fonts" "$(SolutionDir)..\..\bin\win64\release\fonts\" /y /e
+xcopy "$(ProjectDir)shaders" "$(SolutionDir)..\..\bin\win64\release\shaders\" /y /e
+
+xcopy "$(ProjectDir)res" "$(SolutionDir)..\..\bin\win64\release\res\" /y /e
+xcopy "$(SolutionDir)..\..\3rd\win64\FreeImage\bin\$(Platform)\FreeImage.dll" "$(SolutionDir)..\..\bin\win64\debug\" /y /e
+xcopy "$(SolutionDir)..\..\3rd\win64\assimp\bin\release\assimp-vc141-mt.dll" "$(SolutionDir)..\..\bin\win64\debug\" /y /e
+xcopy "$(SolutionDir)$(Configuration)\$(projectname).exe" "$(SolutionDir)..\..\bin\win64\release\" /y /e
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;include;include\freetype2;include\stb;debug;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>debug\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DEPRECATED_WARNINGS;USING_QT_OPENGL_FUNCTION;USING_SHADER;UWS_NO_ZLIB;BUILD_WITH_EASY_PROFILER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;User32.lib;gdi32.lib;advapi32.lib;Iphlpapi.lib;Shell32.lib;Dbghelp.lib;ucrtd.lib;Userenv.lib;OpenGL32.lib;freetyped.lib;assimp-vc141-mtd.lib;glfw3.lib;glew32.lib;freeImage.lib;h3.lib;libuv.lib;uWS.lib;zlibwapi.lib;libcrypto.lib;libssl.lib;gaeactor-utils.lib;gaeactor-utils-location.lib;gaeactor-transmit.lib;gaeactor-comm.lib;gaeactor-environment.lib;gaeactor-presentation.lib;easy_profiler.lib;loggingservice.lib;crashservice.lib;common.lib;crash_generation_client.lib;crash_generation_server.lib;exception_handler.lib;libcurl-d_imp.lib;OpenThreadsd.lib;osgAnimationd.lib;osgFXd.lib;osgManipulatord.lib;osgPresentationd.lib;osgSimd.lib;osgTextd.lib;osgUtild.lib;osgVolumed.lib;osgd.lib;osgDBd.lib;osgGAd.lib;osgParticled.lib;osgShadowd.lib;osgTerraind.lib;osgUId.lib;osgViewerd.lib;osgWidgetd.lib;osgEarthd.lib;osgEarthFeaturesd.lib;osgEarthSplatd.lib;osgEarthSymbologyd.lib;osgEarthUtild.lib;osgEarthAnnotationd.lib;geos.lib;Qt5Xlsxd.lib;oatpp.lib;oatpp-swagger.lib;oatpp-sqlite.lib;oatpp-websocket.lib;sqlite.lib;ecal_cored.lib;ecal_ecaltime_pbd.lib;ecal_mon_plugin_libd.lib;ecal_protod.lib;hdf5_D.lib;ecal_app_pbd.lib;ecal_core_pbd.lib;ecal_ecal-utilsd.lib;ecal_hdf5d.lib;ecal_pbd.lib;ecal_rec_addon_cored.lib;libprotobuf-lited.lib;libprotocd.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\LaViCDesktop.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreSpecificDefaultLibraries>LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DEPRECATED_WARNINGS;USING_QT_OPENGL_FUNCTION;USING_SHADER;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>./$(Configuration)/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>$(ProjectDir)</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)..\..\bin\win64\debug\res\" (md "$(SolutionDir)..\..\bin\win64\debug\res\")
+if not exist "$(SolutionDir)..\..\bin\win64\debug\fonts\" (md "$(SolutionDir)..\..\bin\win64\debug\fonts\")
+if not exist "$(SolutionDir)..\..\bin\win64\debug\shaders\" (md "$(SolutionDir)..\..\bin\win64\debug\shaders\")
+xcopy "$(ProjectDir)res" "$(SolutionDir)..\..\bin\win64\debug\res\" /y /e
+xcopy "$(ProjectDir)fonts" "$(SolutionDir)..\..\bin\win64\debug\fonts\" /y /e
+xcopy "$(ProjectDir)shaders" "$(SolutionDir)..\..\bin\win64\debug\shaders\" /y /e
+xcopy "$(SolutionDir)..\..\3rd\win64\FreeImage\bin\$(Platform)\FreeImage.dll" "$(SolutionDir)..\..\bin\win64\debug\" /y /e
+xcopy "$(SolutionDir)..\..\3rd\win64\assimp\bin\debug\assimp-vc141-mtd.dll" "$(SolutionDir)..\..\bin\win64\debug\" /y /e
+xcopy "$(SolutionDir)$(Configuration)\$(projectname).exe" "$(SolutionDir)..\..\bin\win64\debug\" /y /e
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src/widget2d/DrawItem.cpp" />
+    <ClCompile Include="src/widget2d/DrawTextItem.cpp" />
+    <ClCompile Include="src/widget2d/framebuffer.cpp" />
+    <ClCompile Include="src/components/gaeactormanager.cpp" />
+    <ClCompile Include="src/components/gpct101\gpc.c" />
+    <ClCompile Include="src/widget2d/IconItem.cpp" />
+    <ClCompile Include="src/components/KlusterWebSocketClient.cpp" />
+    <ClCompile Include="src/widget2d/maprender.cpp" />
+    <ClCompile Include="src/widget2d/Shader.cpp" />
+    <ClCompile Include="src/components/glad.c" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src/widget2d/TextCharacter.cpp" />
+    <ClCompile Include="src/components/triangle\triangle.c" />
+    <ClCompile Include="src/components/Triangluation.cpp" />
+    <ClCompile Include="src\components\configmanager.cpp" />
+    <ClCompile Include="src\components\eventdriver\eventdriver.cpp" />
+    <ClCompile Include="src\components\global_variables.cpp" />
+    <ClCompile Include="src\components\httpclient\httpclient.cpp" />
+    <ClCompile Include="src\components\KlusterWebSocketServer.cpp" />
+    <ClCompile Include="src\datamanager\datamanager.cpp" />
+    <ClCompile Include="src\httpserver\httpserver.cpp" />
+    <ClCompile Include="src\httpserver\httpserver\ErrorHandler.cpp" />
+    <ClCompile Include="src\httpserver\httpserver\service\AgentService.cpp" />
+    <ClCompile Include="src\qgantt\ganttwidget.cpp" />
+    <ClCompile Include="src\qgantt\qabstractrangemodel.cpp" />
+    <ClCompile Include="src\qgantt\qganttdata.cpp" />
+    <ClCompile Include="src\qgantt\qganttmodel.cpp" />
+    <ClCompile Include="src\qgantt\qganttmodelitem.cpp" />
+    <ClCompile Include="src\qgantt\qganttmodellist.cpp" />
+    <ClCompile Include="src\qgantt\qrangeview.cpp" />
+    <ClCompile Include="src\uiwidget\agenteditpanel.cpp" />
+    <ClCompile Include="src\uiwidget\agenteditwidget.cpp" />
+    <ClCompile Include="src\uiwidget\agentslistwidget.cpp" />
+    <ClCompile Include="src\uiwidget\Component\lib\qtmaterialcheckable.cpp" />
+    <ClCompile Include="src\uiwidget\Component\lib\qtmaterialcheckable_internal.cpp" />
+    <ClCompile Include="src\uiwidget\Component\lib\qtmaterialoverlaywidget.cpp" />
+    <ClCompile Include="src\uiwidget\Component\lib\qtmaterialripple.cpp" />
+    <ClCompile Include="src\uiwidget\Component\lib\qtmaterialrippleoverlay.cpp" />
+    <ClCompile Include="src\uiwidget\Component\lib\qtmaterialstatetransition.cpp" />
+    <ClCompile Include="src\uiwidget\Component\lib\qtmaterialstyle.cpp" />
+    <ClCompile Include="src\uiwidget\Component\lib\qtmaterialtheme.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialcheckbox.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialcircularprogress.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialcircularprogress_internal.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialcombobox.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialflatbutton.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialflatbutton_internal.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialhboxlayoutcomponentgroup.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialiconbutton.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmateriallineedit.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialprogress.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialprogress_internal.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialradiobutton.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialraisedbutton.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialscrollbar.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialscrollbar_internal.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialslider.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialslider_internal.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialsnackbar.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialsnackbar_internal.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialstatusbutton.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialtext.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialtextbutton.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialtoggle.cpp" />
+    <ClCompile Include="src\uiwidget\Component\qtmaterialtoggle_internal.cpp" />
+    <ClCompile Include="src\uiwidget\instagentslistwidget.cpp" />
+    <ClCompile Include="src\uiwidget\mapeditwidget.cpp" />
+    <ClCompile Include="src\uiwidget\mapwidget.cpp" />
+    <ClCompile Include="src\uiwidget\pathitemwidget.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </ClCompile>
+    <ClCompile Include="src\uiwidget\pathpanel.cpp" />
+    <ClCompile Include="src\uiwidget\playwidget.cpp" />
+    <ClCompile Include="src\uiwidget\replayitemwidget.cpp" />
+    <ClCompile Include="src\uiwidget\replaypanel.cpp" />
+    <ClCompile Include="src\uiwidget\replaywidget.cpp" />
+    <ClCompile Include="src\uiwidget\runningwidget.cpp" />
+    <ClCompile Include="src\uiwidget\runtimeeditwidget.cpp" />
+    <ClCompile Include="src\uiwidget\runtimelistwidget.cpp" />
+    <ClCompile Include="src\uiwidget\settingswidget.cpp" />
+    <ClCompile Include="src\uiwidget\sostepslistwidget.cpp" />
+    <ClCompile Include="src\uiwidget\trackingwidget.cpp" />
+    <ClCompile Include="src\uiwidget\treectrl.cpp" />
+    <ClCompile Include="src\uiwidget\widgetmanager.cpp" />
+    <ClCompile Include="src\widget2d\maprendererfbo.cpp" />
+    <ClCompile Include="src\widget2d\maptexturebuffer.cpp" />
+    <ClCompile Include="src\widget2d\pickidmanager.cpp" />
+    <ClCompile Include="src\widget2d\pickingobject.cpp" />
+    <ClCompile Include="src\widget2d\pickingtexture.cpp" />
+    <ClCompile Include="src\widget2d\TextCharTexture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src/widget2d/DrawItem.h" />
+    <ClInclude Include="src/widget2d/DrawTextItem.h" />
+    <ClInclude Include="src/widget2d/framebuffer.hpp" />
+    <ClInclude Include="src/components/gpct101\gpc.h" />
+    <QtMoc Include="src\components\configmanager.h" />
+    <QtMoc Include="src\components\httpclient\httpclient.hpp" />
+    <QtMoc Include="src\components\eventdriver\eventdriver.h" />
+    <ClInclude Include="src\components\global_variables.h" />
+    <QtMoc Include="src\components\KlusterWebSocketServer.h" />
+    <ClInclude Include="src\components\StrDef.h" />
+    <ClInclude Include="src\components\TaskThreadPoolEx.h" />
+    <ClInclude Include="src\datamanager\datamanager.hpp" />
+    <QtMoc Include="src\uiwidget\treectrl.h" />
+    <QtMoc Include="src\uiwidget\instagentslistwidget.h" />
+    <QtMoc Include="src\uiwidget\sostepslistwidget.h" />
+    <QtMoc Include="src\qgantt\ganttwidget.h" />
+    <QtMoc Include="src\qgantt\qabstractrangemodel.h" />
+    <QtMoc Include="src\qgantt\qganttdata.h" />
+    <QtMoc Include="src\qgantt\qganttmodel.h" />
+    <QtMoc Include="src\qgantt\qganttmodelitem.h" />
+    <QtMoc Include="src\qgantt\qganttmodellist.h" />
+    <QtMoc Include="src\qgantt\qrangeview.h" />
+    <QtMoc Include="src\uiwidget\replaywidget.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialcheckbox.h" />
+    <QtMoc Include="src\uiwidget\Component\lib\qtmaterialcheckable.h" />
+    <QtMoc Include="src\uiwidget\Component\lib\qtmaterialcheckable_internal.h" />
+    <ClInclude Include="src\httpserver\httpserver.h" />
+    <ClInclude Include="src\httpserver\httpserver\controller\AgentController.hpp" />
+    <ClInclude Include="src\httpserver\httpserver\controller\StaticController.hpp" />
+    <ClInclude Include="src\httpserver\httpserver\dto\AgentDto.hpp" />
+    <ClInclude Include="src\httpserver\httpserver\dto\PageDto.hpp" />
+    <ClInclude Include="src\httpserver\httpserver\dto\StatusDto.hpp" />
+    <ClInclude Include="src\httpserver\httpserver\ErrorHandler.hpp" />
+    <ClInclude Include="src\httpserver\httpserver\handler.h" />
+    <ClInclude Include="src\httpserver\httpserver\HttpServerComponent.hpp" />
+    <ClInclude Include="src\httpserver\httpserver\service\AgentService.hpp" />
+    <ClInclude Include="src\httpserver\httpserver\SwaggerComponent.hpp" />
+    <ClInclude Include="src\uiwidget\Component\lib\qtmaterialcheckable_p.h" />
+    <QtMoc Include="src\uiwidget\Component\lib\qtmaterialoverlaywidget.h" />
+    <QtMoc Include="src\uiwidget\Component\lib\qtmaterialripple.h" />
+    <QtMoc Include="src\uiwidget\Component\lib\qtmaterialrippleoverlay.h" />
+    <QtMoc Include="src\uiwidget\Component\lib\qtmaterialstatetransition.h" />
+    <ClInclude Include="src\uiwidget\Component\lib\qtmaterialstatetransitionevent.h" />
+    <QtMoc Include="src\uiwidget\Component\lib\qtmaterialstyle.h" />
+    <ClInclude Include="src\uiwidget\Component\lib\qtmaterialstyle_p.h" />
+    <QtMoc Include="src\uiwidget\Component\lib\qtmaterialtheme.h" />
+    <ClInclude Include="src\uiwidget\Component\lib\qtmaterialtheme_p.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialcheckbox_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialcircularprogress.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialcircularprogress_internal.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialcircularprogress_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialcombobox.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialcombobox_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialflatbutton.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialflatbutton_internal.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialflatbutton_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialhboxlayoutcomponentgroup.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialhboxlayoutcomponentgroup_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialiconbutton.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialiconbutton_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmateriallineedit.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmateriallineedit_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialprogress.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialprogress_internal.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialprogress_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialradiobutton.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialradiobutton_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialraisedbutton.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialraisedbutton_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialscrollbar.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialscrollbar_internal.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialscrollbar_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialslider.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialslider_internal.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialslider_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialsnackbar.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialsnackbar_internal.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialsnackbar_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialstatusbutton.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialstatusbutton_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialtext.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialtextbutton.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialtextbutton_p.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialtext_p.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialtoggle.h" />
+    <QtMoc Include="src\uiwidget\Component\qtmaterialtoggle_internal.h" />
+    <ClInclude Include="src\uiwidget\Component\qtmaterialtoggle_p.h" />
+    <QtMoc Include="src\uiwidget\playwidget.h" />
+    <QtMoc Include="src\uiwidget\runningwidget.h" />
+    <QtMoc Include="src\uiwidget\replaypanel.h" />
+    <QtMoc Include="src\uiwidget\replayitemwidget.h" />
+    <QtMoc Include="src\uiwidget\settingswidget.h" />
+    <QtMoc Include="src\uiwidget\trackingwidget.h" />
+    <QtMoc Include="src\uiwidget\pathpanel.h" />
+    <QtMoc Include="src\uiwidget\pathitemwidget.h" />
+    <ClInclude Include="src\widget2d\colorbuffer.hpp" />
+    <ClInclude Include="src\widget2d\maptexturebuffer.h" />
+    <ClInclude Include="src\widget2d\pickingobject.h" />
+    <ClInclude Include="src\widget2d\pickingtexture.h" />
+    <ClInclude Include="src\widget2d\TextCharTexture.h" />
+    <QtMoc Include="src\widget2d\pickidmanager.h" />
+    <QtMoc Include="src\widget2d\maprendererfbo.h" />
+    <QtMoc Include="src\uiwidget\widgetmanager.h" />
+    <QtMoc Include="src\uiwidget\runtimelistwidget.h" />
+    <QtMoc Include="src\uiwidget\runtimeeditwidget.h" />
+    <QtMoc Include="src\uiwidget\mapwidget.h" />
+    <QtMoc Include="src\uiwidget\mapeditwidget.h" />
+    <QtMoc Include="src\uiwidget\agentslistwidget.h" />
+    <QtMoc Include="src\uiwidget\agenteditwidget.h" />
+    <QtMoc Include="src\uiwidget\agenteditpanel.h" />
+    <QtMoc Include="src/components/KlusterWebSocketClient.h" />
+    <ClInclude Include="src/widget2d/TextCharacter.h" />
+    <ClInclude Include="src/components/triangle\triangle.h" />
+    <ClInclude Include="src/components/Triangluation.h" />
+    <QtMoc Include="src/components/gaeactormanager.h" />
+    <ClInclude Include="src/widget2d/IconItem.hpp" />
+    <ClInclude Include="src/components/mapmath.hpp" />
+    <ClInclude Include="src/widget2d/maprender.h" />
+    <ClInclude Include="src/widget2d/Shader.h" />
+    <ClInclude Include="src/components/thread\CELLDelegate.hpp" />
+    <ClInclude Include="src/components/thread\CELLList.hpp" />
+    <ClInclude Include="src/components/thread\CELLListNode.hpp" />
+    <ClInclude Include="src/components/thread\CELLMutex.hpp" />
+    <ClInclude Include="src/components/thread\CELLObject.hpp" />
+    <ClInclude Include="src/components/thread\CELLPlatform.hpp" />
+    <ClInclude Include="src/components/thread\CELLSemaphore.hpp" />
+    <ClInclude Include="src/components/thread\CELLTask.hpp" />
+    <ClInclude Include="src/components/thread\CELLTaskSys.hpp" />
+    <ClInclude Include="src/components/thread\CELLThread.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="qml.qrc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

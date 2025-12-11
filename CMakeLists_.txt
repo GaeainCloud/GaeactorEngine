@@ -1,0 +1,169 @@
+cmake_minimum_required(VERSION 3.10)
+project(gaeactor)
+
+# 设置 C++ 标准
+# set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON) 
+# set(CMAKE_C_EXTENSIONS OFF)  # 禁用编译器扩展
+
+# 为GCC或Clang添加特定的编译器标志
+# if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
+#     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
+# endif()
+
+
+
+#设置构建参数
+#set(BUILD_TYPE "Debug" CACHE STRING "Set Cmake Build Type")
+#set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+
+# 设置输出目录
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+
+# 设置支持的构建配置类型
+#set(CMAKE_CONFIGURATION_TYPES Debug Release RelWithDebInfo MinSizeRel CACHE STRING "Supported build types" FORCE)
+
+# 设置默认构建类型
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+endif()
+
+set(CMAKE_DEBUG_POSTFIX "d")
+
+# 设置C和C++编译器（可选）
+
+# 指定MSVC的C和C++编译器
+
+# set(CMAKE_C_COMPILER gcc)
+# set(CMAKE_CXX_COMPILER g++)
+
+#下面代码开启/Zc:__cplusplus选项
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:__cplusplus")
+
+# 强制用户输入部署路径
+set(DEPLOY_PATH "" CACHE PATH "You must provide a valid DEPLOY_PATH to continue")
+if(NOT DEPLOY_PATH)
+    message(FATAL_ERROR "DEPLOY_PATH must be set to a valid path!")
+endif()
+
+set(3RD_PATH "" CACHE PATH "You must provide a valid 3RD_PATH to continue")
+if(NOT 3RD_PATH)
+    message(FATAL_ERROR "3RD_PATH must be set to a valid path!")
+endif()
+######################################################
+# if(${CMAKE_BUILD_TYPE} STREQUAL "Debug") 
+#     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Od")#最低优化
+#     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /Od")
+#     add_definitions(-DBUILD_TYPE_DEBUG)
+# elseif(${CMAKE_BUILD_TYPE} STREQUAL "Release")
+#     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /O2 /Oi /Ot")#最高优化
+#     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /O2 /Oi /Ot")
+#     add_definitions(-DBUILD_TYPE_RELEASE)
+# endif ()
+
+# If MSYS, set CMAKE_INSTALL_PREFIX to /usr/local; if WINDOWS, '..'
+# if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+#     if(MSYS)
+#     	execute_process(
+#             COMMAND sh -c 'cd / && pwd -W'
+#             OUTPUT_VARIABLE MSYS_PWD
+#             ERROR_VARIABLE MSYS_ERR
+#         )
+#         if(MSYS_ERR STREQUAL "")
+#             string(REPLACE "\n" "" MSYS_ROOT ${MSYS_PWD})
+#             set(CMAKE_INSTALL_PREFIX "${MSYS_ROOT}/usr/local" CACHE PATH "Install to ${MSYS_ROOT}/usr/local" FORCE)
+#         else()
+#             message(STATUS "Use default MAKE_INSTALL_PREFIX due to ${MSYS_ERR}")
+#         endif()
+#     endif()
+# endif()
+
+
+include(CMakeDependentOption)
+option(BUILD_STATIC_LIBS "Build static libraries" ON)
+option(BUILD_SHARED_LIBS "Build shared library" ON)
+set(_NO_STATIC_LIBS NOCACHE INTERNAL (NOT ${BUILD_STATIC_LIBS}))
+cmake_dependent_option(LINK_APPS_SHARED "Use shared library for linking applications"
+    _NO_STATIC_LIBS
+    "BUILD_SHARED_LIBS;BUILD_STATIC_LIBS"
+    ${BUILD_SHARED_LIBS}
+)
+
+IF (MSVC)
+    OPTION(WIN32_USE_MP "Set to ON to build osgEarth with the /MP option (Visual Studio 2005 and above)." ON)
+    MARK_AS_ADVANCED(WIN32_USE_MP)
+    IF (WIN32_USE_MP)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
+    ENDIF (WIN32_USE_MP)
+ENDIF (MSVC)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+#设置自动moc、uic、rcc
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+######################################################
+# 查找 Qt5
+find_package(Qt5 COMPONENTS Core REQUIRED)
+include_directories(${Qt5Core_INCLUDE_DIRS})
+set(QT_LIBRARIES Qt5::Core)
+######################################################
+# 部署路径
+set(BUILD_INCLUDE_DIR "${DEPLOY_PATH}/${PLATFORM_DIR}/include" CACHE PATH "build include install path")
+set(BUILD_LIB_DIR "${DEPLOY_PATH}/${PLATFORM_DIR}/lib" CACHE PATH "build lib install path")
+set(BUILD_BIN_DIR "${DEPLOY_PATH}/${PLATFORM_DIR}/bin" CACHE PATH "build bin install path")
+set(BUILD_PDB_DIR "${DEPLOY_PATH}/${PLATFORM_DIR}/pdb" CACHE PATH "build pdb install path")
+######################################################
+set(CMAKE_DIR "${CMAKE_SOURCE_DIR}/cmake" CACHE PATH "cmake install path")
+######################################################
+
+# 设置第三方库路径
+
+# 添加子项目
+add_subdirectory(gaeactor-comm)
+add_subdirectory(gaeactor-transmit)
+add_subdirectory(gaeactor-environment)
+add_subdirectory(gaeactor-environment-ex)
+add_subdirectory(gaeactor-event-engine)
+add_subdirectory(gaeactor-auditions)
+add_subdirectory(gaeactor-interactions)
+add_subdirectory(gaeactor-agent-sensors)
+add_subdirectory(gaeactor-agent-cores)
+add_subdirectory(gaeactor)
+add_subdirectory(gaeactor-engine)
+add_subdirectory(gaeactor-record)
+add_subdirectory(gaeactor-test)
+add_subdirectory(gaeactor-tools)
+add_subdirectory(gaeactor-viewer)
+add_subdirectory(gaeactor-display)
+add_subdirectory(gaeactor-benchmark)
+add_subdirectory(gaeactor-comm-test)
+add_subdirectory(TierAirlineAirPortSimulation)
+add_subdirectory(gaeactor-presentation-test)
+add_subdirectory(gaeactor-presentation-test3)
+add_subdirectory(gaeactor-presentation-test4)
+add_subdirectory(gaeactor-presentation-test5)
+add_subdirectory(gaeactor-presentation-test6)
+add_subdirectory(gaeactor-presentation-test8)
+
+# 安装目标
+install(DIRECTORY ${CMAKE_BINARY_DIR}/bin ${CMAKE_BINARY_DIR}/lib 
+        DESTINATION ${DEPLOY_PATH}/${PLATFORM_DIR}
+        COMPONENT runtime)
+
+# 打印构建信息
+message(STATUS "========== Build Information ==========")
+message(STATUS "Install Prefix (CMAKE_INSTALL_PREFIX): ${CMAKE_INSTALL_PREFIX}")
+message(STATUS "Include Directory (BUILD_INCLUDE_DIR): ${BUILD_INCLUDE_DIR}")
+message(STATUS "Binary Directory (BUILD_BIN_DIR):    ${BUILD_BIN_DIR}")
+message(STATUS "Library Directory (BUILD_LIB_DIR):   ${BUILD_LIB_DIR}")
+message(STATUS "Build Type (CMAKE_BUILD_TYPE):         ${CMAKE_BUILD_TYPE}")
+message(STATUS "Deploy Path (DEPLOY_PATH):             ${DEPLOY_PATH}")

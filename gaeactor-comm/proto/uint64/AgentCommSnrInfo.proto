@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package msg.AgentCommSnrInfo;
+
+message msg_AgentCommSnrInfo 
+{
+    uint64 src_agent = 1;
+    uint64 dst_agent = 2;
+    uint64 sensingmediaid = 3;
+    uint64 tmplmodsig = 4;
+    bool positive = 5;
+    double bandwidth = 6;
+    double sinr = 7;
+    double snr = 8;
+    string a_iffcode=9;
+    string b_iffcode=10;
+}
