@@ -173,7 +173,7 @@ MainWindow::MainWindow(QWidget *parent)
 //    findTrajectoryFolders("D:/model/model/PARASE");
 #if 1
 #if 0
-    path="C:/Users/lj/Downloads/ImageToStl.com_dcc388cf-5e10-4a6f-b8ef-d4113697e72bc/ImageToStl.com_dcc388cf-5e10-4a6f-b8ef-d4113697e72bc.obj";
+    path="C:/Users/song/Downloads/ImageToStl.com_dcc388cf-5e10-4a6f-b8ef-d4113697e72bc/ImageToStl.com_dcc388cf-5e10-4a6f-b8ef-d4113697e72bc.obj";
     m_pModelWidget->initNode(agentid,"",0,path, lon,lat,hgt*10,roll,pitch,yaw,100);
     m_pModelWidget->updateEntityTracking(agentid, lon,lat,hgt,roll,pitch,yaw);
     m_pModelWidget->visibleEntityTracking(agentid,false,(UINT64)QtOSGWidget::E_VISIABLE_ATTRIBUTE_LABEL |

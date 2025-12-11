@@ -2030,7 +2030,7 @@ void DataManager::readWpsRunwayFile(const std::string& filename)
 		}
 		m_pCurrentAirPortInfo->m_WPSRunwayInfos.insert(namefile, geoinfos);
 		///////////////////////////////////////////////////////////////////
-		//LJ
+		// song
 		for (auto subcoordinates : geoinfos.subItem)
 		{
 			switch (geoinfos.type)

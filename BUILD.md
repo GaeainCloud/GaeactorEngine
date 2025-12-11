@@ -53,7 +53,7 @@ IF (MSVC)
 ELSE()
     set(PLATFORM_DIR "lnx" CACHE PATH "You must provide a valid PLATFORM_DIR to continue")
     # 强制用户输入部署路径
-    set(3RD_PATH "/home/lj/work/projects/3rd/lnx" CACHE PATH "You must provide a valid 3RD_PATH to continue")
+    set(3RD_PATH "/home/song/work/projects/3rd/lnx" CACHE PATH "You must provide a valid 3RD_PATH to continue")
     if(NOT 3RD_PATH)
         message(FATAL_ERROR "3RD_PATH must be set to a valid path!")
     endif()
